@@ -12,7 +12,7 @@ namespace TopDown_API.Repositories
                 return null;
             }
 
-            return new Usuario { Login = "userTopDown", Senha = "T0pD0wn" };
+            return new Usuario { Login = "userTopDown", Senha = "T0pD0wn", Funcao = "Usuario" };
 
         }
     }

@@ -119,7 +119,7 @@ namespace TopDown_API.Controllers
             {
                 if (id == 0)
                 {
-                    return BadRequest(new { status = 400, message = "Id da tarefa deve ser fornecido" }s);
+                    return BadRequest(new { status = 400, message = "Id da tarefa deve ser fornecido" });
                 }
                  _taskService.DeleteTask(id);
 

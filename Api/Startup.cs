@@ -53,7 +53,10 @@ namespace TopDown_API
                 { In = ParameterLocation.Header,
                   Description = "Necessário Bearer Token",
                   Name= "Authorization",
-                  Type = SecuritySchemeType.ApiKey});
+                  Type = SecuritySchemeType.ApiKey,
+                    Scheme = "Bearer",
+                    BearerFormat = "JWT"
+                });
 
                 c.AddSecurityRequirement(new OpenApiSecurityRequirement 
                 {
