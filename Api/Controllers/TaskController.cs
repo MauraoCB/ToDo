@@ -20,23 +20,21 @@ namespace TopDown_API.Controllers
             _taskService = taskService;
         }
 
-        [HttpPut]
-        [Route("SaveTask")]
+        [HttpPost]
+        [Route("AddTask")]
         [Authorize(Roles = "Usuario")]
-        public IActionResult SaveTask([FromBody] Models.Task task)
+        public IActionResult AddTask([FromBody] Models.Task task)
         {
             try
             {
-               
-
                 if (ModelState.IsValid)
                 {
 
-                    _taskService.SaveTask(task);
+                    _taskService.AddTask(task);
 
                     return Ok(new
                     {
-                        Message = "Cartão incluído com sucesso!",
+                        Message = "Tarefa incluída com sucesso!",
                         Success = true
                     });
                 }
@@ -60,7 +58,7 @@ namespace TopDown_API.Controllers
             {
                 if (id == 0)
                 {
-                    return Problem(statusCode: 500, detail: "Id da tarefa deve ser fornecedo");
+                    return Problem(statusCode: 500, detail: "Id da tarefa deve ser fornecido");
                 }
                 var task = _taskService.GetTask(id);
 
