@@ -7,6 +7,8 @@ using FromBodyAttribute = Microsoft.AspNetCore.Mvc.FromBodyAttribute;
 
 using RouteAttribute = Microsoft.AspNetCore.Mvc.RouteAttribute;
 using Task = System.Threading.Tasks.Task;
+using System.Collections.Generic;
+using Microsoft.DotNet.Scaffolding.Shared.Messaging;
 
 namespace TopDown_API.Controllers
 {
@@ -34,8 +36,8 @@ namespace TopDown_API.Controllers
 
                     return Ok(new
                     {
-                        Message = "Tarefa incluída com sucesso!",
-                        Success = true
+                        message = "Tarefa incluída com sucesso!",
+                        success = true
                     });
                 }
                 else
@@ -52,17 +54,80 @@ namespace TopDown_API.Controllers
         [HttpGet]
         [Route("GetTask/{id}")]
         [Authorize(Roles = "Usuario")]
-        public async Task<ActionResult<Task>> GetTask(int id)
+        public async Task<ActionResult<Models.Task>> GetTask(int id)
         {
             try
             {
                 if (id == 0)
                 {
-                    return Problem(statusCode: 500, detail: "Id da tarefa deve ser fornecido");
+                    return BadRequest( new {status = 400, message = "Id da tarefa deve ser fornecido");
                 }
                 var task = _taskService.GetTask(id);
 
                 return Ok(task);
+            }
+            catch (System.Exception ex)
+            {
+                return Problem(statusCode: 500, detail: ex.Message);
+            }
+        }
+
+        [HttpGet]
+        [Route("GetAll")]
+        [Authorize(Roles = "Usuario")]
+        public async Task<ActionResult<List<Models.Task>>> GetAll()
+        {
+            try
+            {             
+                var tasks = _taskService.GetAll();
+
+                return Ok(tasks);
+            }
+            catch (System.Exception ex)
+            {
+                return Problem(statusCode: 500, detail: ex.Message);
+            }
+        }
+
+        [HttpPut]
+        [Route("UpdateTask")]
+        [Authorize(Roles = "Usuario")]
+        public async Task<ActionResult> UpdateTask([FromBody] Models.Task task)
+        {
+            try
+            {
+                 _taskService.AddTask(task);
+
+                return Ok(new
+                {
+                    message = "Tarefa incluída com sucesso!",
+                    success = true
+                });
+            }
+            catch (System.Exception ex)
+            {
+                return Problem(statusCode: 500, detail: ex.Message);
+            }
+        }
+
+        [HttpDelete]
+        [Route("DeleteTask/{id}")]
+        [Authorize(Roles = "Usuario")]
+        public async Task<ActionResult> DeleteTask(int id)
+        {
+            try
+            {
+                if (id == 0)
+                {
+                    return BadRequest(new { status = 400, message = "Id da tarefa deve ser fornecido");
+                }
+                 _taskService.DeleteTask(id);
+
+                return Ok(new
+                {
+                    message = "Tarefa excluída com sucesso!",
+                    success = true
+                });
             }
             catch (System.Exception ex)
             {
