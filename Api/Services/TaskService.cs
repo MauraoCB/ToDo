@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using TopDown_API.Models;
-using TopDown_API.Repositories.Interfaces;
-using TopDown_API.Services.Interfaces;
+using ToDo_API.Models;
+using ToDo_API.Repositories.Interfaces;
+using ToDo_API.Services.Interfaces;
 
-namespace TopDown_API.Services
+namespace ToDo_API.Services
 {
     public class TaskService: ITaskService
     {

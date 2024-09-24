@@ -1,11 +1,11 @@
-﻿using TopDown_API.Infra;
-using TopDown_API.Models;
-using TopDown_API.Repositories.Interfaces;
+﻿using ToDo_API.Infra;
+using ToDo_API.Models;
+using ToDo_API.Repositories.Interfaces;
 using System.Linq;
 using System.Collections.Generic;
 using System;
 
-namespace TopDown_API.Repositories
+namespace ToDo_API.Repositories
 {
     public class TaskRepository: ITaskRepository
     {

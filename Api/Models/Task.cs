@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace TopDown_API.Models
+namespace ToDo_API.Models
 {
     public class Task
     {

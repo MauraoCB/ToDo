@@ -1,4 +1,4 @@
-﻿using TopDown_API.Models;
+﻿using ToDo_API.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -7,7 +7,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace TopDown_API.Services
+namespace ToDo_API.Services
 {
     public class TokenService
     {

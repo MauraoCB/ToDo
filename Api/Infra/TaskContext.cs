@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using TopDown_API.Models;
+using ToDo_API.Models;
 
-namespace TopDown_API.Infra
+namespace ToDo_API.Infra
 {
     public class TaskContext : DbContext
     {

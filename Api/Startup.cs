@@ -9,7 +9,7 @@ using Microsoft.OpenApi.Models;
 
 using System.Text;
 
-namespace TopDown_API
+namespace ToDo_API
 {
     public class Startup
     {
@@ -47,7 +47,7 @@ namespace TopDown_API
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "topdown_API", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "ToDo_API", Version = "v1" });
               
                 c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme 
                 { In = ParameterLocation.Header,
@@ -78,7 +78,7 @@ namespace TopDown_API
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "topdown_API v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ToDo_API v1"));
             }
 
             app.UseHttpsRedirection();

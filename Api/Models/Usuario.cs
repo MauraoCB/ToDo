@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace TopDown_API.Models
+namespace ToDo_API.Models
 {
     public class Usuario
     {

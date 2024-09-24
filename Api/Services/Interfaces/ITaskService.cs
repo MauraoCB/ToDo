@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using TopDown_API.Models;
+using ToDo_API.Models;
 
-namespace TopDown_API.Services.Interfaces
+namespace ToDo_API.Services.Interfaces
 {
     public interface ITaskService
     {

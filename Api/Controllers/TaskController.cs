@@ -1,5 +1,5 @@
-﻿using TopDown_API.Models;
-using TopDown_API.Services.Interfaces;
+﻿using ToDo_API.Models;
+using ToDo_API.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using AuthorizeAttribute = Microsoft.AspNetCore.Authorization.AuthorizeAttribute;
@@ -10,7 +10,7 @@ using Task = System.Threading.Tasks.Task;
 using System.Collections.Generic;
 using Microsoft.DotNet.Scaffolding.Shared.Messaging;
 
-namespace TopDown_API.Controllers
+namespace ToDo_API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

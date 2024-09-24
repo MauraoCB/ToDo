@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using TopDown_API.Models;
+using ToDo_API.Models;
 
-namespace TopDown_API.Repositories.Interfaces
+namespace ToDo_API.Repositories.Interfaces
 {
     public   interface ITaskRepository
     {
