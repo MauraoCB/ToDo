@@ -10,5 +10,6 @@ namespace ToDo_API.Services.Interfaces
         public Task GetTask(int id);
         public List<Task> GetAll();
         public void DeleteTask(int id);
+       public void UpdateStatus(int id, string status);
     }
 }

@@ -96,11 +96,42 @@ namespace ToDo_API.Controllers
         {
             try
             {
-                 _taskService.AddTask(task);
+                 _taskService.UpdateTask(task);
 
                 return Ok(new
                 {
-                    message = "Tarefa incluída com sucesso!",
+                    message = "Tarefa atualizada com sucesso!",
+                    success = true
+                });
+            }
+            catch (System.Exception ex)
+            {
+                return Problem(statusCode: 500, detail: ex.Message);
+            }
+        }
+
+        [HttpPut]
+        [Route("UpdateStatus/{id}/{status}")]
+        [Authorize(Roles = "Usuario")]
+        public async Task<ActionResult> UpdateStatus([FromBody] int id, string status )
+        {
+            try
+            {
+                if (id == 0)
+                {
+                    return BadRequest(new { status = 400, message = "Id da tarefa deve ser fornecido" });
+                }
+
+                if ("P;C".IndexOf(status) < 0)
+                {
+                    return BadRequest(new { status = 400, message = "O status da tarefa deve ser P ou C" });
+                }
+
+                _taskService.UpdateStatus(id, status);
+
+                return Ok(new
+                {
+                    message = "Status alterado com sucesso!",
                     success = true
                 });
             }

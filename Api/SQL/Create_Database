@@ -1,0 +1,15 @@
+CREATE DATABASE Unico
+GO
+
+Use Unico
+GO
+
+CREATE TABLE dbo.Task(
+	Id int IDENTITY(1,1) NOT NULL,
+	Title varchar(40) NOT NULL,
+	Description varchar(255)NOT NULL,
+	Status Char(1) NOT NULL
+ CONSTRAINT PK_Task PRIMARY KEY CLUSTERED 
+(
+	Id ASC
+)

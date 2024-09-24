@@ -21,8 +21,6 @@ namespace ToDo_API
 
             var builder = WebApplication.CreateBuilder(args);
 
-            builder.Services.AddDbContext<TaskContext>(options => options.UseInMemoryDatabase("dbTask"));
-
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 

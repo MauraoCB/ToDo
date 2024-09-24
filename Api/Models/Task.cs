@@ -11,6 +11,6 @@ namespace ToDo_API.Models
         [Required(ErrorMessage = "Por favor informe descricao")]
         public string Description { get; set; }
         public DateTime? DueDate { get; set; }
-        public bool IsCompleted { get; set; }
+        public string Status { get; set; }
     }
 }

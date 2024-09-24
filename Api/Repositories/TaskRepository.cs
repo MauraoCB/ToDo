@@ -62,5 +62,15 @@ namespace ToDo_API.Repositories
                 context.SaveChanges();
             }
         }
+
+        public void UpdateStatus(int id, string status)
+        {
+            using (TaskContext context = new())
+            {
+                Task task = context.Task.First(c => c.Id == id);
+                task.Status = status;
+                context.SaveChanges();
+            }
+        }
     }
 }

@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -8,6 +9,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 
 using System.Text;
+using ToDo_API.Infra;
 
 namespace ToDo_API
 {
@@ -25,6 +27,10 @@ namespace ToDo_API
         {
 
             services.AddControllers();
+
+            services.AddDbContext<TaskContext>(options =>
+                                               options.UseSqlServer(Configuration.GetConnectionString("ConnectionUnico")));
+
             var chave = Encoding.ASCII.GetBytes(Configuration.GetValue<string>("ChaveJWT"));
 
             services.AddAuthentication(x =>

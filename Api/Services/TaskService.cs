@@ -46,5 +46,10 @@ namespace ToDo_API.Services
         {
             _taskRepository.DeleteTask(id);
         }
+
+        public void UpdateStatus(int id, string status)
+        {
+            _taskRepository.UpdateStatus(id, status);
+        }
     }
 }
