@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using System.IO;
 using ToDo_API.Models;
 
 namespace ToDo_API.Infra
@@ -15,6 +17,19 @@ namespace ToDo_API.Infra
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+                IConfigurationRoot configuration = new ConfigurationBuilder()
+                   .SetBasePath(Directory.GetCurrentDirectory())
+                   .AddJsonFile("appsettings.json")
+                   .Build();
+                var connectionString = configuration.GetConnectionString("ConnectionUnico");
+                optionsBuilder.UseSqlServer(connectionString);
+            }
         }
     }
 }

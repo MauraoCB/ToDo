@@ -32,9 +32,6 @@ namespace ToDo_API
 
             services.AddControllers();
 
-            services.AddDbContext<TaskContext>(options =>
-                                               options.UseSqlServer(Configuration.GetConnectionString("ConnectionUnico")));
-
             services.AddScoped<ITaskService, TaskService>();
             services.AddScoped<ITaskRepository, TaskRepository>();
 

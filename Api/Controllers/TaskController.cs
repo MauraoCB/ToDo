@@ -31,6 +31,10 @@ namespace ToDo_API.Controllers
             {
                 if (ModelState.IsValid)
                 {
+                    if ("P;C".IndexOf(task.Status) < 0)
+                    {
+                        return BadRequest(new { status = 400, message = "O status da tarefa deve ser P ou C" });
+                    }
 
                     _taskService.AddTask(task);
 
