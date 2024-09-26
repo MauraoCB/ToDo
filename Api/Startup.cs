@@ -7,9 +7,13 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-
+using Newtonsoft.Json.Serialization;
 using System.Text;
 using ToDo_API.Infra;
+using ToDo_API.Repositories;
+using ToDo_API.Repositories.Interfaces;
+using ToDo_API.Services;
+using ToDo_API.Services.Interfaces;
 
 namespace ToDo_API
 {
@@ -30,6 +34,9 @@ namespace ToDo_API
 
             services.AddDbContext<TaskContext>(options =>
                                                options.UseSqlServer(Configuration.GetConnectionString("ConnectionUnico")));
+
+            services.AddScoped<ITaskService, TaskService>();
+            services.AddScoped<ITaskRepository, TaskRepository>();
 
             var chave = Encoding.ASCII.GetBytes(Configuration.GetValue<string>("ChaveJWT"));
 

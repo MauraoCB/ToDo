@@ -24,7 +24,7 @@ namespace ToDo_API.Controllers
 
         [HttpPost]
         [Route("AddTask")]
-        [Authorize(Roles = "Usuario")]
+        //[Authorize(Roles = "Usuario")]
         public IActionResult AddTask([FromBody] Models.Task task)
         {
             try
@@ -53,7 +53,7 @@ namespace ToDo_API.Controllers
 
         [HttpGet]
         [Route("GetTask/{id}")]
-        [Authorize(Roles = "Usuario")]
+        //[Authorize(Roles = "Usuario")]
         public async Task<ActionResult<Models.Task>> GetTask(int id)
         {
             try
@@ -74,7 +74,7 @@ namespace ToDo_API.Controllers
 
         [HttpGet]
         [Route("GetAll")]
-        [Authorize(Roles = "Usuario")]
+        //[Authorize(Roles = "Usuario")]
         public async Task<ActionResult<List<Models.Task>>> GetAll()
         {
             try
@@ -91,7 +91,7 @@ namespace ToDo_API.Controllers
 
         [HttpPut]
         [Route("UpdateTask")]
-        [Authorize(Roles = "Usuario")]
+        //[Authorize(Roles = "Usuario")]
         public async Task<ActionResult> UpdateTask([FromBody] Models.Task task)
         {
             try
@@ -112,7 +112,7 @@ namespace ToDo_API.Controllers
 
         [HttpPut]
         [Route("UpdateStatus/{id}/{status}")]
-        [Authorize(Roles = "Usuario")]
+        //[Authorize(Roles = "Usuario")]
         public async Task<ActionResult> UpdateStatus([FromBody] int id, string status )
         {
             try
@@ -143,7 +143,7 @@ namespace ToDo_API.Controllers
 
         [HttpDelete]
         [Route("DeleteTask/{id}")]
-        [Authorize(Roles = "Usuario")]
+        //[Authorize(Roles = "Usuario")]
         public async Task<ActionResult> DeleteTask(int id)
         {
             try

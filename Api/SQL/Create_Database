@@ -4,7 +4,7 @@ GO
 Use Unico
 GO
 
-CREATE TABLE dbo.Task(
+CREATE TABLE Task(
 	Id int IDENTITY(1,1) NOT NULL,
 	Title varchar(40) NOT NULL,
 	Description varchar(255)NOT NULL,
@@ -12,4 +12,4 @@ CREATE TABLE dbo.Task(
  CONSTRAINT PK_Task PRIMARY KEY CLUSTERED 
 (
 	Id ASC
-)
+))
